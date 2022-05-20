@@ -10,6 +10,12 @@ board=$(board_name)
 case "$FIRMWARE" in
 "ath10k/cal-pci-0000:00:00.0.bin")
 	case $board in
+	tplink,tl-wdr6500g-v3)
+		caldata_extract "art" 0x2000 0x2f20
+		ath10k_patch_mac $(macaddr_add $(mtd_get_mac_binary art 0x8) -1)
+		ln -sf /lib/firmware/ath10k/cal-pci-0000\:00\:00.0.bin \
+			/lib/firmware/ath10k/QCA9888/hw2.0/board.bin
+		;;
 	allnet,all-wap02860ac|\
 	engenius,eap1200h|\
 	engenius,enstationac-v1|\

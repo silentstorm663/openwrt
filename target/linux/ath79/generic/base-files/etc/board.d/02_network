@@ -9,6 +9,10 @@ ath79_setup_interfaces()
 	local board="$1"
 
 	case "$board" in
+	tplink,tl-wdr6500g-v3)
+		ucidef_add_switch "switch0" \
+			"1:lan:4" "2:lan:3" "3:lan:2" "4:lan:1" "0:wan" "6@eth0"
+		;;
 	adtran,bsap1800-v2|\
 	adtran,bsap1840|\
 	allnet,all-wap02860ac|\

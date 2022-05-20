@@ -24,6 +24,16 @@ define Device/tplink_archer-c2-v3
 endef
 TARGET_DEVICES += tplink_archer-c2-v3
 
+define Device/tplink_tl-wdr6500g-v3
+  SOC := qca9563
+  IMAGE_SIZE := 8000k
+  DEVICE_MODEL := WDR6500G
+  DEVICE_VARIANT := v3
+  DEVICE_PACKAGES := kmod-ath10k-ct-smallbuffers ath10k-firmware-qca9888-ct kmod-switch-rtl8367b
+  TPLINK_BOARD_ID := WDR6500G-V3
+endef
+TARGET_DEVICES += tplink_tl-wdr6500g-v3
+
 define Device/tplink_archer-c25-v1
   $(Device/tplink-safeloader-uimage)
   SOC := qca9561
